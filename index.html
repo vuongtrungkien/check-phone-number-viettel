@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check phone number viettel</title>
+</head>
+<body>
+<p>List of phone numbers :  <span id="list"></span></p>
+<p >Phone number of viettel : <span id="display"></span></p>
+<script>
+    let arrPhoneNumber = ["0839000029", "0896016239", "0349520558","03495206698","0369528874"];
+    let phoneNumberViettel = [];
+
+    function checkPhoneNumber(arr,arr2) {
+        let regexp = /^([0]||\+84)[3]{1}[2-9]{1}[0-9]{7}$/;
+        for (let i = 0; i < arr.length; i++) {
+            if (regexp.test(arr[i])) {
+                arr2.push(arr[i])
+            }
+        }
+        return arr2;
+    }
+
+    function displayPhoneNumberViettel(arr) {
+        if (arr.length < 1  ) {
+            return  "isn't number phone viettel";
+        } else {
+            return  arr;
+        }
+    }
+
+    checkPhoneNumber(arrPhoneNumber,phoneNumberViettel);
+    document.getElementById("list").innerHTML = arrPhoneNumber;
+    document.getElementById("display").innerHTML = displayPhoneNumberViettel(phoneNumberViettel);
+</script>
+</body>
+</html>
